@@ -19,6 +19,7 @@ correct.
 2. The volume control is slow. It relies on the up/down commands and takes a
 while to complete.
 3. Input Source Select is not yet implemented
+4. Mute / Unmute commands need to be extended to the zones
 
 # Bugs / other issues
 Feel free to publish bugs, improvements, or other issues here!
