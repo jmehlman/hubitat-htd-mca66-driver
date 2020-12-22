@@ -7,7 +7,7 @@ not tested it.
 # Installation
 1. Copy the interface and zone driver code into two separate files on your hubitat
 2. Create a new virtual device, and point it at the 'HTD MCA66 Amplifier Interface'.
-    - Do NOT instantiate the 'HTD MCA66 Amplifier zone.' These will be
+  - Do NOT instantiate the 'HTD MCA66 Amplifier zone.' These will be
   automatically created by the Interface.
 3. Edit the preferences pane to point at the IP address of your HTD gateway, and
 save the update.
@@ -18,8 +18,6 @@ save the update.
 correct.
 2. The volume control is slow. It relies on the up/down commands and takes a
 while to complete.
-3. Input Source Select is not yet implemented
-4. Mute / Unmute commands need to be extended to the zones
 
 # Bugs / other issues
 Feel free to publish bugs, improvements, or other issues here!
