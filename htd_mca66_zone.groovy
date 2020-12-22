@@ -24,6 +24,8 @@
 metadata {
     definition(name: "HTD MCA66 Amplifier Zone", namespace: "htdmca66", author: "Jeff Mehlman") {
         command "sendTestMessage"
+        command "selectInput", [[name:"inputNum",type:"NUMBER", description:"Input Number", constraints:["NUMBER"]]]
+
         capability "AudioVolume"
         capability "HealthCheck"
         capability "Switch"
@@ -67,6 +69,7 @@ void volumeDown() {
 
     getParent().volumeDown(zone)
 }
+
 
 void setVolume(volume) {
     if (device.currentValue('switch') == 'off') {
@@ -126,6 +129,28 @@ void off() {
     //sendEvent(name: "switch", value: "off")
 }
 
+void mute() {
+    def zone = state.ZoneNumber as byte
+
+    if (state.mute == 'unmuted') {
+        getParent().toggleMute(zone)
+    }
+}
+
+void unmute() {
+    def zone = state.ZoneNumber as byte
+
+    if (state.mute == 'muted') {
+        getParent().toggleMute(zone)
+    }
+}
+
+void selectInput(inputNum) {
+    def zone = state.ZoneNumber as byte
+
+    getParent().selectInput(zone, inputNum as byte)
+}
+
 void updateState(statesMap) {
     if (state.updatingVolume == null)
     {
@@ -133,6 +158,8 @@ void updateState(statesMap) {
     }
 
     if (state.updatingVolume == false) {
-        statesMap.each{entry -> sendEvent(name: entry.key, value: entry.value)}
+        statesMap.each{entry -> sendEvent(name: entry.key, value: entry.value)
+        state."${entry.key}" = entry.value
+        }
     }
 }

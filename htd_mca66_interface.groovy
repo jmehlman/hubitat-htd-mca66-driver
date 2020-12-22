@@ -29,7 +29,9 @@ metadata {
         command "createZones"
         command "deleteZones"
 
-        capability "Configuration"
+        capability "HealthCheck"
+        //capability "AudioVolume"
+
     }
 
     preferences{
@@ -93,6 +95,25 @@ void sendTestMessage() {
 
     sendMessage(msgon)
 }
+
+void toggleMute(zone) {
+    def msg = [0x02,0x00,zone,0x04,0x22] as byte[]
+
+    sendMessage(msg)
+}
+
+void selectInput(zone, byte inputNum) {
+    def inputNumRange = 1..7
+    if ( inputNumRange.contains(inputNum as int) )
+    {
+        def msg = [0x02, 0x00, zone, 0x04, inputNum+2] as byte[]
+        sendMessage(msg)
+    }
+    else {
+        log.error "Invalid input number: ${inputNum}"
+    }
+}
+
 
 void createZones() {
     for (i in 1..6)
