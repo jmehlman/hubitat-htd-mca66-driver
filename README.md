@@ -7,7 +7,7 @@ not tested it.
 # Installation
 1. Copy the interface and zone driver code into two separate files on your hubitat
 2. Create a new virtual device, and point it at the 'HTD MCA66 Amplifier Interface'.
-  - Do NOT instantiate the 'HTD MCA66 Amplifier zone.' These will be
+    - Do NOT instantiate the 'HTD MCA66 Amplifier zone.' These will be
   automatically created by the Interface.
 3. Edit the preferences pane to point at the IP address of your HTD gateway, and
 save the update.
