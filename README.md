@@ -1,7 +1,7 @@
 # Overview
 This project provides a basic driver interface for the Home Theatre Direct MCA66,
-assuming that you have the MCA66 connected to your wifi using their optional
-ethernet gateway. This driver may also work with their WiFi gateway, but I have
+assuming that you have the MCA66 connected to your network using their optional
+wired ethernet gateway. This driver may also work with their WiFi gateway, but I have
 not tested it.
 
 # Installation
