@@ -18,6 +18,7 @@
  *
  *   Change Log:
  *     12/21/2020 v1.0 - Initial release
+ *     12/22/2020 v1.1 - added mute & input select
  *
  */
 metadata {
